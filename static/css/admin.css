@@ -1,0 +1,246 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-size: cover;
+    font-family: sans-serif;
+}
+body{
+    background-image: url('/static/img/admin.png');
+}
+.container{
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 100px;
+}
+.lbl-menu{
+    background: #234;
+    width:100;
+    
+}
+.lbl-menu label{
+    display: inline-block;
+    padding: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 400ms ease;
+    
+}
+.lbl-menu label:hover{
+    background: #28435d;
+}
+.content{
+    position: relative;
+}
+.content div{
+    position: absolute;
+    line-height: 1.8;
+    transition: all 600ms ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.90);
+    padding: 30px;
+    background: #fff;
+    padding-bottom: 40px;
+    left: -130px;
+}
+#radio1,#radio2,#radio3,#radio4{
+    display: none;
+}
+#radio1:checked ~ .tab1,
+#radio2:checked ~ .tab2
+{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+.content div:after{
+    position: absolute;
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    bottom: 100%;
+    left:170px;
+}
+.content .tab2:after{
+    left: 300px;
+}
+.content .tab3:after{
+    left: 210px;
+}
+.content .tab4:after{
+    left: 303px;
+}
+
+#table, th, td{
+border: 1px solid black;
+border-collapse: value;
+
+}
+
+
+#th, td{
+    padding: 15px;
+}
+.myButton {
+    
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:5px 10px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #283966;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+.file-select {
+    position: relative;
+    display: inline-block;
+    
+  }
+
+  .file-select::before {
+    
+    background-color: #5678EF;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Importar JSON';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  .file-select input[type="file"] {
+    opacity: 0;
+    width: 150px;
+    height: 32px;
+    display: inline-block;
+  }
+
+
+
+
+
+
+
+  
+      
+        
+  .file-select1 {
+    position: relative;
+    display: inline-block;
+    
+    width: 150px;
+    height: 36px;
+    
+  }
+
+  .file-select1::before {
+    
+    background-color: #f75929;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Exportar PDF';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+ 
+  .file-select1 input[type="submit"] {
+    opacity: 0;
+    width: 150px;
+    height: 32px;
+    display: inline-block;
+  }
+
+
+  .cerrar {
+	background-color:#ff0000;
+	border-radius:2px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:6px 14px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ff0000;
+}
+.cerrar:hover {
+	background-color:#bd2a2a;
+}
+.cerrar:active {
+	position:relative;
+	top:1px;
+}
+
+.cerrar {
+	background-color:#ff0000;
+	border-radius:2px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:6px 14px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ff0000;
+}
+.cerrar:hover {
+	background-color:#bd2a2a;
+}
+.cerrar:active {
+	position:relative;
+	top:1px;
+}      
+
+.reporte {
+	background-color:#084feb;
+	border-radius:2px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:6px 14px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #084feb;
+}
+.reporte:hover {
+	background-color:#2a59bd;
+}
+.reporte:active {
+	position:relative;
+	top:1px;
+}
+
+      

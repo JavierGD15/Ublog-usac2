@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir HTML a PDF</title>
+    <!-- El script de la librería-->
+    <script src="/static/html2pdf.bundle.min.js"></script>
+    <!--Nuestro script, que se encarga de crear el PDF usando la librería-->
+    <script src="/static/grafimprimir.js"></script>
+    <script src="/static/grafica.js"></script>
+    <!-- Algunos estilos -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/reportes.css">
+
+</head>
+
+<body>
+    <div id="div1" class="chart-container" style="text-align:center; height:40vh; width:40vw">
+        <h1 >Reportes</h1>
+        <h4>Top 5 de usuarios con más post Imagenes </h4>
+        <canvas id="myChart2"></canvas>
+       
+    </div>
+    <div id="div2" class="chart-container" style="text-align:center; height:40vh; width:40vw">
+        <h1 >Reportes</h1>
+        <h4>Top 5 de usuarios con más post Videos </h4>
+        <canvas id="myChart3"></canvas>
+       
+    </div>
+    
+
+<div id="div3" class="chart-container" style="position: relative; height:40vh; width:40vw">
+   
+    <h4>Top 5 de post con más “me gusta” Imagenes</h4>
+    <canvas id="myChart" ></canvas>
+        
+</div>
+
+<div id="div4" class="chart-container" style="position: relative; height:40vh; width:40vw">
+   
+    <h4>Top 5 de post con más “me gusta” Videos</h4>
+    <canvas id="myChart4" ></canvas>
+    <button class="myButton"  id="btnCrearPdf">Imprimir</button>
+
+    
+</div>
+
+<br>
+
+
+
+
+<br>
+<script src="chart.js"></script>
+<script>
+    
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+       
+
+        labels: ['{{top1imagenes["usuario"]}}', '{{top2imagenes["usuario"]}}', '{{top3imagenes["usuario"]}}', '{{top4imagenes["usuario"]}}', '{{top5imagenes["usuario"]}}'],
+        datasets: [{
+            label: 'Likes',
+            backgroundColor: '#42a5f5',
+            borderColor: 'gray',
+            
+            data: ['{{top1imagenes["likes"]}}', '{{top2imagenes["likes"]}}', '{{top3imagenes["likes"]}}', '{{top4imagenes["likes"]}}', '{{top5imagenes["likes"]}}']
+        }		
+		]},
+    options: {responsive: true}
+});
+
+var ctx = document.getElementById('myChart4').getContext('2d');
+var chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+       
+
+        labels: ['{{top1videos["usuario"]}}', '{{top2videos["usuario"]}}', '{{top3videos["usuario"]}}', '{{top4videos["usuario"]}}', '{{top5videos["usuario"]}}'],
+        datasets: [{
+            label: 'Likes',
+            backgroundColor: '#42a5f5',
+            borderColor: 'gray',
+            
+            data: ['{{top1videos["likes"]}}', '{{top2videos["likes"]}}', '{{top3videos["likes"]}}', '{{top4videos["likes"]}}', '{{top5videos["likes"]}}']
+        }		
+		]},
+    options: {responsive: true}
+});
+
+
+var ctx2 = document.getElementById('myChart2').getContext('2d');
+var chart = new Chart(ctx2, {
+    type: 'doughnut',
+    data: 	
+	{
+				datasets: [{
+					 data: ['{{topusuarios["contador"]}}', '{{topusuarios1["contador"]}}', '{{topusuarios2["contador"]}}', '{{topusuarios3["contador"]}}', '{{topusuarios4["contador"]}}'],
+					backgroundColor: ['#42a5f5', 'red', 'green','blue','violet'],
+					label: 'Comparacion de navegadores'
+				}],
+				labels: ['{{topusuarios["username"]}}', '{{topusuarios1["username"]}}', '{{topusuarios2["username"]}}', '{{topusuarios3["username"]}}', '{{topusuarios4["username"]}}']},
+    options: {}
+});
+
+
+var ctx2 = document.getElementById('myChart3').getContext('2d');
+var chart = new Chart(ctx2, {
+    type: 'doughnut',
+    data: 	
+	{
+				datasets: [{
+					 data: ['{{topusuariosvideos["contador"]}}', '{{topusuariosvideos1["contador"]}}', '{{topusuariosvideos2["contador"]}}', '{{topusuariosvideos3["contador"]}}', '{{topusuariosvideos4["contador"]}}'],
+					backgroundColor: ['#42a5f5', 'red', 'green','blue','violet'],
+					label: 'Comparacion de navegadores'
+				}],
+				labels: ['{{topusuariosvideos["username"]}}', '{{topusuariosvideos1["username"]}}', '{{topusuariosvideos2["username"]}}', '{{topusuariosvideos3["username"]}}', '{{topusuariosvideos4["username"]}}']},
+    options: {}
+});
+</script>
+   
+
+
+
+    
+</body>
+
+</html>

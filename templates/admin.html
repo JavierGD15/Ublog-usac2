@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menù con tabs | Html - Css</title>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    
+    
+</head>
+<body>
+    <a href="/" class="cerrar">Cerrar Sesión</a>
+    <a href="/admin/reportes" class="reporte">Crear Reporte</a>
+   
+    
+    <div class="container" >
+        <div class="lbl-menu" >
+            <label for="radio1">Usuarios</label>
+            <label for="radio2">Publicaciones</label>
+        </div>
+        
+        <div class="content">
+           
+            <input type="radio" name="radio" id="radio1" checked>
+            <div class="tab1">
+                <h2>Usuarios</h2>
+                <table style="border-collapse: collapse" bordercolor="#111111" width="900">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Genero</th>
+                        <th>Nombre de Usuario</th>
+                        <th>Correo</th>
+                        <th>Contraseña</th>
+                        <th colspan="2">Ediciones</th>
+                    </tr>
+                    {%for us in usuario%}
+                    <tr>
+                        <td>{{us["name"]}}</td>
+                        <td>{{us["gender"]}}</td>
+                        <td>{{us["username"]}}</td>
+                        <td>{{us["email"]}}</td>
+                        <td>{{us["password"]}}</td>
+
+                        <form action="/inicio/editar" method="post">  
+                            <input type="hidden" name="username" value="{{us["username" ]}}"> 
+                            <input type="hidden" name="name" value="{{us["name" ]}}"> 
+                            <input type="hidden" name="gender" value="{{us["gender" ]}}"> 
+                            <input type="hidden" name="email" value="{{us["email" ]}}"> 
+                            <input type="hidden" name="password" value="{{us["password" ]}}">
+                            <td><input class="myButton" type="submit" value="Editar" ></td> 
+                        </form>   
+                        <form action="/inicio/eliminar" method="post"> 
+                            <input type="hidden" name="username" value="{{us["username" ]}}"> 
+                            <td><input class="myButton" type="submit" value="Eliminar" ></td>
+                        </form>
+                                               
+                       
+                       
+                        
+                        
+                        
+                    </tr>
+                    {%endfor%}
+
+                </table>
+                <br>
+                <a class="myButton" href="/inicio/PDF-usuarios" role="button">Exportar PDF</a>
+                <form  action="/inicio/JSON" method="post" enctype="multipart/form-data" >     
+                    <input type="file"  name="src-file1" aria-label="Archivo" >
+                    <input class="myButton" type="submit" value="Enviar" >
+                </form>  
+ 
+                
+                
+            </div>
+
+
+
+
+
+
+            
+            <input type="radio" name="radio" id="radio2">
+            <div class="tab2">
+                <h2>Publicaciones</h2>
+                <table style="border-collapse: collapse" bordercolor="#111111" width="900">
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Url</th>
+                        <th>Fecha</th>
+                        <th>Categoria</th>
+                        <th>Likes</th>
+                        <th>Creador</th>
+                        <th colspan="2">Ediciones</th>
+                    </tr>
+                    {%for us in images%}
+                    <tr>
+                        <td>Imagen</td>
+                        <td>{{us["url"]}}</td>
+                        <td>{{us["date"]}}</td>
+                        <td>{{us["category"]}}</td>
+                        <td>{{us["likes"]}}</td>
+                        <td>{{us["usuario"]}}</td>
+
+                        <form action="/inicio/editar-publicaciones" method="post">  
+                            <input type="hidden" name="tipo" value="image">   
+                            <input type="hidden" name="url" value="{{us["url" ]}}"> 
+                            <input type="hidden" name="date" value="{{us["date" ]}}">
+                            <input type="hidden" name="category" value="{{us["category" ]}}"> 
+                            <input type="hidden" name="likes" value="{{us["likes" ]}}"> 
+                            <input type="hidden" name="usuario" value="{{us["usuario" ]}}">                             
+                            <td><input class="myButton" type="submit" value="Editar" ></td> 
+                        </form>   
+                        <form action="/inicio/eliminar-publicaciones-images" method="post"> 
+                            <input type="hidden" name="usuario" value="{{us["usuario" ]}}">
+                            <input type="hidden" name="url" value="{{us["url" ]}}"> 
+                            <input type="hidden" name="date" value="{{us["date" ]}}">  
+                            <td><input class="myButton" type="submit" value="Eliminar" ></td>
+                        </form>
+                                               
+                       
+                       
+                        
+                        
+                        
+                    </tr>
+                    {%endfor%}
+
+
+
+
+                    {%for us in videos%}
+                    <tr>
+                        <td>Video</td>
+                        <td>{{us["url"]}}</td>
+                        <td>{{us["date"]}}</td>
+                        <td>{{us["category"]}}</td>
+                        <td>{{us["likes"]}}</td>
+                        <td>{{us["usuario"]}}</td>
+
+                        <form action="/inicio/editar-publicaciones" method="post">
+                            <input type="hidden" name="tipo" value="video">   
+                            <input type="hidden" name="url" value="{{us["url" ]}}"> 
+                            <input type="hidden" name="date" value="{{us["date" ]}}">
+                            <input type="hidden" name="category" value="{{us["category" ]}}"> 
+                            <input type="hidden" name="likes" value="{{us["likes" ]}}"> 
+                            <input type="hidden" name="usuario" value="{{us["usuario" ]}}">                             
+                            <td><input class="myButton" type="submit" value="Editar" ></td> 
+                        </form>   
+                        <form action="/inicio/eliminar-publicaciones-videos" method="post"> 
+                            <input type="hidden" name="usuario" value="{{us["usuario" ]}}">
+                            <input type="hidden" name="url" value="{{us["url" ]}}"> 
+                            <input type="hidden" name="date" value="{{us["date" ]}}">  
+                            <td><input class="myButton" type="submit" value="Eliminar" ></td>
+                        </form>
+                                               
+                       
+                       
+                        
+                        
+                        
+                    </tr>
+                    {%endfor%}
+
+                </table>
+                <br>
+                <a class="myButton" href="/inicio/PDF-publicaciones" role="button">Exportar PDF</a>
+                <form  action="/inicio/JSON-usuarios" method="post" enctype="multipart/form-data" >     
+                    <input type="file"  name="src-file1" aria-label="Archivo" >
+                    <input class="myButton" type="submit" value="Enviar" >
+                </form>  
+
+
+            </div>
+                      
+            
+            
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static/css/post.css">
+  <title>Formulario Registro</title>
+</head>
+<body>
+   
+
+
+    <form action="/inicio/new-post/carga" method="post">
+        <section class="form-register">
+            <h4>Nueva Publicación</h4>
+            <input class="controls" type="text" name="enlace" id="enlace" placeholder="Ingrese el Enlace de la publicación">
+            <input class="controls" type="text" name="categoria" id="categoria" placeholder="Ingrese su Categoria">                       
+            <input type="radio" name="imagen" id="imagen">
+			<label for="imagen">Imagen</label>		
+			<input type="radio" name="video" id="video">
+			<label for="video">Video</label>
+            <input class="botons" type="submit" value="Publicar" >            
+        </section>
+    </form>
+</body>
+</html>

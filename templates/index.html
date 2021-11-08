@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login Form Design One | Fazt</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+  </head>
+  <body>
+
+    <header class="header">
+       
+      <div id="encabezado">
+          
+          <div id="logo">
+              <img  class="imagen"src="static/img/Ublog.png" >
+          </div>
+
+          <div id="menu">
+             
+              <ul>
+                  <li><a href="/"class="active-menu">Inicio</a></li>
+                  <li><a href="/acerca_de"class="enlace">Acerca de...</a></li>
+                  <li><a href="/mision-mision"class="enlace">Misión-Visión</a></li>
+                  <li><a href="/contacto"class="enlace">Contáctenos</a></li>
+                  <li><a href="/creador"class="enlace">Desarrollo</a></li>
+                  
+              </ul>
+          </div>
+      </div>
+
+
+      
+  
+
+  </header>
+
+    <div class="login-box">
+      <img src="/static/img/Ublog (1).png" class="avatar" alt="Avatar Image">
+      <h1>Inicia Sesión</h1>
+      <form action="/carga" method="post">
+        <!-- usuario INPUT -->
+        <label for="username">Usuario</label>
+        <input name="user" type="text" placeholder="Ingresa tu Usuario">
+        <!-- contraseña INPUT -->
+        <label for="password">Contraseña</label>
+        <input name="contraseña" type="text" placeholder="Ingresa tu Contraseña">
+        <input type="submit" value="Ingresar">
+        <a href="/registro">¿No tienes una cuenta? Registrate.</a>
+      </form>
+    </div>
+  </body>
+</html>

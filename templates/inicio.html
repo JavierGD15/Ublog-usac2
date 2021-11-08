@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang=”en”>
+<head>
+    <meta charset=”UTF-8″ />
+    <title>Página Principal</title>
+  
+      <link rel="stylesheet"  href="static/css/estilo.css"></link>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    <header class="header">
+       
+        <div id="encabezado">
+            
+            <div id="logo">
+                <img  class="imagen"src="static/img/Ublog.png" >
+            </div>
+
+            <div id="menu">
+               
+                <ul>
+                    <li><a href="/inicio"class="active-menu">Inicio</a></li>
+                    <li><a href="/inicio/new-post" class="enlace">New-post</a></li>                    
+                    <li><a  href="/acerca_de"class="enlace">Acerca de...</a></li>                    
+                    <li><a href="/contacto"class="enlace">Contáctenos</a></li>
+                    <li><a href="/"class="enlace">Cerrar Sesión</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        
+    
+
+    </header>
+
+   
+    <div id="container_publicacion">
+
+    </div> 
+
+
+    <div id="container_imagen"  >
+      
+      <h1 align="center">Fotos publicadas por usuarios</h1>
+      <br>
+      <div class="row">
+  
+        {%for video in images%}
+        <div class="col-md">     
+  
+        <div class="targeta" >
+            <img id="pre-imagen" height="100" src="{{ video["url" ]}}" alt="">
+              <div class="informacion">
+                <p class="clasificacion">{{ video["usuario"]}}</p>
+                <h6 class="titulo-video">{{ video["date"]}}</h6>
+                <form action="/inicio/like" method="post">  
+                  
+                  <input type="hidden" name="tipo" value="image"> 
+                  <input type="hidden" name="url" value="{{video["url" ]}}"> 
+                  <input type="hidden" name="date" value="{{video["date" ]}}">
+                  <input type="hidden" name="category" value="{{video["category" ]}}"> 
+                  <input type="hidden" name="likes" value="{{video["likes" ]}}"> 
+                  <input type="hidden" name="usuario" value="{{video["usuario" ]}}"> 
+                  <button type="submit" class="button">{{ video["likes" ]}}</button>
+                   
+                
+                
+                </form>
+              </div>
+              <br>
+        </div>
+        </div>
+        {%endfor%}
+      </div>
+    </div>
+ 
+  
+
+    <div id="container_video"  >
+      <h1 align="center">Videos publicados por usuarios</h1>
+      <br>
+      <div class="row">
+  
+        {%for video in videos%}
+        
+        <div class="col-md-3">
+       
+  
+        <div class="targeta" >
+          <iframe src="{{ video["url" ]}}"></iframe>
+            <img id="pre-imagen"src="{{ video["url" ]}}" alt="">
+              <div class="informacion">
+                <p class="clasificacion">{{ video["usuario"]}}</p>
+                <h6 class="titulo-video">{{ video["date"]}}</h6>
+                <form action="/inicio/like" method="post">  
+                  
+                  <input type="hidden" name="tipo" value="video"> 
+                  <input type="hidden" name="url" value="{{video["url" ]}}"> 
+                  <input type="hidden" name="date" value="{{video["date" ]}}">
+                  <input type="hidden" name="category" value="{{video["category" ]}}"> 
+                  <input type="hidden" name="likes" value="{{video["likes" ]}}"> 
+                  <input type="hidden" name="usuario" value="{{video["usuario" ]}}"> 
+                  
+                                    
+                  <button type="submit" class="button">{{ video["likes" ]}}</button>
+                
+                </form>
+               
+              </div>
+              <br>
+        </div>
+        </div>
+        {%endfor%}
+      </div>
+    </div>
+
+    <div id="container_imagenusuario"  >
+      
+      <h1 align="center">Fotos publicadas por ti</h1>
+      <br>
+      <div class="row">
+  
+        {%for video in usuarioimagen%}
+        <div class="col-md">     
+  
+        <div class="targeta" >
+            <img id="pre-imagen" height="100" src="{{ video["url" ]}}" alt="">
+              <div class="informacion">
+                <p class="clasificacion">{{ video["usuario"]}}</p>
+                <h6 class="titulo-video">{{ video["date"]}}</h6>
+                <button  class="button">{{ video["likes" ]}}</button>
+
+              </div>
+              <br>
+        </div>
+        </div>
+        {%endfor%}
+      </div>
+    </div>
+  
+
+    <div id="container_video"  >
+      <h1 align="center">Videos publicados por ti</h1>
+      <br>
+      <div class="row">
+  
+        {%for video in usuariovideo%}
+        
+        <div class="col-md-3">
+       
+  
+        <div class="targeta" >
+          <iframe src="{{ video["url" ]}}"></iframe>
+            <img id="pre-imagen"src="{{ video["url" ]}}" alt="">
+              <div class="informacion">
+                <p class="clasificacion">{{ video["usuario"]}}</p>
+                <h6 class="titulo-video">{{ video["date"]}}</h6>
+                <button  class="button">{{ video["likes" ]}}</button>
+
+               
+              </div>
+              <br>
+        </div>
+        </div>
+        {%endfor%}
+      </div>
+    </div>
+</body>
+

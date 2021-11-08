@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir HTML a PDF</title>
+    <!-- El script de la librería-->
+    <script src="/static/html2pdf.bundle.min.js"></script>
+    <!--Nuestro script, que se encarga de crear el PDF usando la librería-->
+    <script src="/static/usuarios.js"></script>
+    <!-- Algunos estilos -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/pdf.css">
+
+
+</head>
+  <body>
+    <div class="tab1" style="text-align:center;">
+        <h2>Usuarios</h2>
+        <table  bordercolor="#111111"  border="1" style="margin: 0 auto;">
+            <tr>
+                <th>Nombre</th>
+                <th>Genero</th>
+                <th>Nombre de Usuario</th>
+                <th>Correo</th>
+                <th>Contraseña</th>
+                
+            </tr>
+            {%for us in usuario%}
+            <tr>
+                <td>{{us["name"]}}</td>
+                <td>{{us["gender"]}}</td>
+                <td>{{us["username"]}}</td>
+                <td>{{us["email"]}}</td>
+                <td>{{us["password"]}}</td>
+                                    
+               
+               
+                
+                
+                
+            </tr>
+            {%endfor%}
+
+        </table>
+        
+        
+        <button class="myButton"  id="btnCrearPdf">Imprimir</button>
+    </div>
+
+    
+    </body>
+</html>

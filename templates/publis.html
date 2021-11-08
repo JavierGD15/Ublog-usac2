@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir HTML a PDF</title>
+    <!-- El script de la librería-->
+    <script src="/static/html2pdf.bundle.min.js"></script>
+    <!--Nuestro script, que se encarga de crear el PDF usando la librería-->
+    <script src="/static/imprimir.js"></script>
+    <!-- Algunos estilos -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/pdf.css">
+
+
+</head>
+
+<body>
+    <div id="tabla" class="tab2" style="text-align:center;">
+        <h2>Publicaciones</h2>
+        <br>
+        <table  bordercolor="#111111"  border="1" style="margin: 0 auto;">
+            <tr>
+                <th>Tipo</th>
+                <th>Url</th>
+                <th>Fecha</th>
+                <th>Categoria</th>
+                <th>Likes</th>
+                <th>Creador</th>
+                
+            </tr>
+            {%for us in images%}
+            <tr>
+                <td>Imagen</td>
+                <td>{{us["url"]}}</td>
+                <td>{{us["date"]}}</td>
+                <td>{{us["category"]}}</td>
+                <td>{{us["likes"]}}</td>
+                <td>{{us["usuario"]}}</td>
+
+            </tr>
+            {%endfor%}
+
+            {%for us in videos%}
+            <tr>
+                <td>Video</td>
+                <td>{{us["url"]}}</td>
+                <td>{{us["date"]}}</td>
+                <td>{{us["category"]}}</td>
+                <td>{{us["likes"]}}</td>
+                <td>{{us["usuario"]}}</td>
+ 
+            </tr>
+            {%endfor%}
+
+        </table>
+        <button class="myButton"  id="btnCrearPdf">Imprimir</button>
+    </div> 
+    
+</body>
+
+</html>
